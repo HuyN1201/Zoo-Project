@@ -1,16 +1,15 @@
 -- Drop tables if they already exist so that they can get recreated.
 -- Drop the referencing tables first to respect referential integrity.
 -- Notice that we get warnings if we try to drop tables that don't exist.
+DROP TABLE IF EXISTS Trainer;
+DROP TABLE IF EXISTS Participates;
+DROP TABLE IF EXISTS Location;
+DROP TABLE IF EXISTS On_the_Loose;
 DROP TABLE IF EXISTS Building_Information;
 DROP TABLE IF EXISTS Staff_Information;
 DROP TABLE IF EXISTS Animal_Information;
 DROP TABLE IF EXISTS Animal_Exhibit_Information;
-DROP TABLE IF EXISTS Animal_Schedule_Informaiton;
-DROP TABLE IF EXISTS Trainer;
-DROP TABLE IF EXISTS Participates;
-DROP TABLE IF EXISTS Location;
-DROP TABLE IF EXISTS Feeding;
-DROP TABLE IF EXISTS On_the_Loose;
+
 
 -- This table represents the buildings in the zoo.
 -- They are identified by their unique buildingID.
