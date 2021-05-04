@@ -102,6 +102,7 @@ CREATE TABLE Participates (
 CREATE TABLE Location ( 
 	exhibitID	CHAR(10) NOT NULL, 
 	buildingID	CHAR(4), 
+    habitat		BOOLEAN,
 
 	PRIMARY KEY (exhibitID,  buildingID), 
 	FOREIGN KEY (exhibitID) REFERENCES Animal_Exhibit_Information(exhibitID)
