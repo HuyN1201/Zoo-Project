@@ -61,6 +61,8 @@ CREATE TABLE Animal_Exhibit_Information (
 CREATE TABLE Participates ( 
 	exhibitID	CHAR(10) NOT NULL, 
 	animalID	CHAR(5)	NOT NULL, 
+	wakeTime	TIME, 
+	sleepTime	TIME, 
 
 	PRIMARY KEY (exhibitID, animalID), 
 	FOREIGN KEY (exhibitID) REFERENCES Animal_Exhibit_Information(exhibitID), 
@@ -76,22 +78,6 @@ CREATE TABLE Location (
 	FOREIGN KEY (buildingID) REFERENCES Building_Information(buildingID) 
 ); 
 
-CREATE TABLE Animal_Schedule_Informaiton ( 
-	feedingTime	DATETIME, 
-	wakeTime	TIME, 
-	sleepTime	TIME, 
-
-	PRIMARY KEY (feedingTime) 
-); 
-
-CREATE TABLE Feeding ( 
-	animalID 	CHAR(5)		NOT NULL, 
-	feedingTime	DATETIME, 
-    
-	PRIMARY KEY (animalID,  feedingTime),
-	FOREIGN KEY (animalID) REFERENCES Animal_Information(animalID),
-	FOREIGN KEY (feedingTime) REFERENCES Animal_Schedule_Information(feedingTime) 
-); 
 
 CREATE TABLE On_the_Loose ( 
 	animalID	CHAR(5)  	NOT NULL, 
