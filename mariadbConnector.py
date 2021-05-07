@@ -1,6 +1,7 @@
+# run "pip install mariadb" on your system first
 import mariadb
 
-# change credential according to each DB before running this file:
+# IMPORTANT: change credential according to each database before running this file.
 conn = mariadb.connect(
     user="root",
     password="infiniti",
@@ -10,7 +11,7 @@ conn = mariadb.connect(
 
 cur = conn.cursor()
 
-# #retrieving info
+# Info retrieving queries
 print("\nRetrieve all clocked-in employees: ")
 cur.execute("SELECT staffID,  FirstName, LastName "
             "   FROM staff_information "
@@ -42,13 +43,7 @@ print("\nRetrieve a list of exhibits that will become vacant in May and Jun")
 cur.execute("SELECT eName AS Exhibit FROM Animal_Exhibit_Information WHERE DateEnd BETWEEN '2021-04-30' AND '2021-06-20';;")
 for(eName) in cur:
     print(f"Exhibit: {eName}")
-# #insert info
-# try:
-#     cur.execute("INSERT INTO account (account_number, branch_name, balance) VALUES (?, ?, ?)", ("A-1000", "Wichita", "1000000" ))
-# except mariadb.Error as e:
-#     print(f"Error: {e}")
 
 conn.commit()
-
 
 conn.close()
