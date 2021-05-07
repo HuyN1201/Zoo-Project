@@ -1,12 +1,65 @@
 -- List the names of all the animals who are diurnal(active during the day)
 SELECT aName as Name, Species
 FROM participates NATURAL JOIN animal_information
-WHERE wakeTime > '06:00:00' AND wakeTime < '10:00:00';
+WHERE wakeTime > '06:00:00' AND wakeTime < '11:00:00';
 
 -- List the names of all the animals who are nocturnal(active during the night)
 SELECT aName as Name, Species 
 FROM participates NATURAL JOIN animal_information
 WHERE wakeTime > '18:00:00' AND wakeTime < '23:00:00';
+
+-- All of the dolphins are being freed back into the ocean!
+-- Delete all dolphins from the database
+SET SQL_SAFE_UPDATES = 0;
+
+Select species FROM animal_information
+ORDER BY species;
+
+DELETE FROM Animal_information
+WHERE species = 'Dolphin';
+
+Select species FROM animal_information
+ORDER BY species;
+
+-- The zoo is going green and all carnivores are being sent back into the wild.
+-- Delete all carnivores from the database
+Select species FROM animal_information
+ORDER BY species;
+
+DELETE FROM Animal_information
+WHERE FoodType = 'Meat' OR FoodType = 'Fish' OR FoodType = 'Mice';
+
+Select species FROM animal_information
+ORDER BY species;
+
+-- The dark rooms that all the nocturnal animals are in are not making a profit.
+-- Delete all nocturnal animals
+Select species FROM animal_information
+ORDER BY species;
+
+DELETE FROM Animal_information
+WHERE species in (SELECT species
+					FROM participates NATURAL JOIN animal_information
+					WHERE wakeTime > '18:00:00' AND wakeTime < '23:00:00');
+
+Select species FROM animal_information
+ORDER BY species;
+
+-- It is not sunny enough at our zoos location and all of of our diurnal animals have got depressed.
+-- They must be moved to a new zoo
+-- Delete all diurnal animals
+Select species FROM animal_information
+ORDER BY species;
+
+DELETE FROM Animal_information
+WHERE species in (SELECT species
+					FROM participates NATURAL JOIN animal_information
+					WHERE wakeTime > '06:00:00' AND wakeTime < '10:00:00');
+                    
+Select species FROM animal_information
+ORDER BY species;
+
+SET SQL_SAFE_UPDATES = 1;
 
 -- Gather a list of all the animals currently on the loose throughout the zoo
 SELECT aName, animalID, exhibitID

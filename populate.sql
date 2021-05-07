@@ -110,7 +110,8 @@ INSERT INTO Animal_Exhibit_Information VALUES
     ('AA00000003','Lion Showcase',False,'2021-06-12','2021-07-12'), 
     ('AA00000004','Tiger Showcase',True,'2021-06-21','2021-07-21'),
     ('AA00000005','Zebra Race',True,'2021-04-15','2021-06-12'), 
-    ('AA00000006','Owl Showcase',True,'2021-05-20','2021-06-20');
+    ('AA00000006','Owl Showcase',True,'2021-05-20','2021-06-20'),
+    ('AA00000007', 'Monkey Showcase',True,'2021-05-10','2021-06-15');
     
 -- Populate Participates table
 INSERT INTO Participates VALUES
@@ -142,7 +143,12 @@ INSERT INTO Participates VALUES
     ('AA00000006','O2PG2','21:15','05:20'),
     ('AA00000006','PL11Y','21:00','05:30'),
     ('AA00000006','3CWO6','22:25','05:50'),
-    ('AA00000006','MXK26','22:15','05:15');
+    ('AA00000006','MXK26','22:15','05:15'),
+    
+    ('AA00000007','OW2K3','06:15','18:20'),
+    ('AA00000007','KJFK1','07:00','17:30'),
+    ('AA00000007','FQ23H','07:25','17:50'),
+    ('AA00000007','MDV90','06:35','18:15');
     
 -- Populate Location table
 INSERT INTO Location VALUES
