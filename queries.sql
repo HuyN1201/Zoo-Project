@@ -116,7 +116,7 @@ UPDATE Staff_Information SET ClockedIn =
 WHERE (FirstName = 'Jordan' AND LastName = 'Seiler');
 
 -- Clock Jordan in on if it is Monday, Wednesday, Friday, and Sunday
-UPDATE Staff_Information SET CLOCKEDIN =
+UPDATE Staff_Information SET CLOCKEDIN = CASE
     WHEN WEEKDAY(CURDATE()) = 0 THEN true
     WHEN WEEKDAY(CURDATE()) = 1 THEN false
     WHEN WEEKDAY(CURDATE()) = 2 THEN true
@@ -124,6 +124,7 @@ UPDATE Staff_Information SET CLOCKEDIN =
     WHEN WEEKDAY(CURDATE()) = 4 THEN true
     WHEN WEEKDAY(CURDATE()) = 5 THEN false
     WHEN WEEKDAY(CURDATE()) = 6 THEN true
+	END
 WHERE (FirstName = 'Jordan' AND LastName = 'Seiler');
             
             
